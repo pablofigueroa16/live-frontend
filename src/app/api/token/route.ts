@@ -16,7 +16,6 @@ export async function GET(req: NextRequest) {
   const apiKey = "APIZB8EfDBPauqK"
   const apiSecret = "wcRBpxAqeUHUwx7Z7xX8TZf3Uu4exnex8huesODcAfRM"
   const wsUrl = "wss://live-4u2mlfwx.livekit.cloud"
-  console.log(apiKey, apiSecret, wsUrl);
 
   if (!apiKey || !apiSecret || !wsUrl) {
     return NextResponse.json({ error: 'Server misconfigured' }, { status: 500 });
