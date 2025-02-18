@@ -85,7 +85,7 @@ export default function Page() {
       </div>
     );
   }
-  const serverUrl = "wss://live-4u2mlfwx.livekit.cloud"
+  const serverUrl = process.env.NEXT_PUBLIC_LIVEKIT_URL
 
   return (
     <LiveKitRoom

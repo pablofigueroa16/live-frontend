@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { AccessToken } from 'livekit-server-sdk';
 
-// Do not cache endpoint result
 export const revalidate = 0;
 
 export async function GET(req: NextRequest) {
@@ -13,10 +12,10 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'Missing "username" query parameter' }, { status: 400 });
   }
 
-  const apiKey = "APIZB8EfDBPauqK"
-  const apiSecret = "wcRBpxAqeUHUwx7Z7xX8TZf3Uu4exnex8huesODcAfRM"
-  const wsUrl = "wss://live-4u2mlfwx.livekit.cloud"
-
+  const apiKey = process.env.NEXT_PUBLIC_LIVEKIT_API_KEY
+  const apiSecret = process.env.NEXT_PUBLIC_LIVEKIT_API_SECRET
+  const wsUrl = process.env.NEXT_PUBLIC_LIVEKIT_URL
+  
   if (!apiKey || !apiSecret || !wsUrl) {
     return NextResponse.json({ error: 'Server misconfigured' }, { status: 500 });
   }
